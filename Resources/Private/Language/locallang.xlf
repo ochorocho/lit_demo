@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2">
+	<file source-language="en" datatype="plaintext" original="messages" date="2026-03-30T00:00:00Z" product-name="lit_demo">
+		<body>
+			<trans-unit id="lit-demo.title" resname="lit-demo.title">
+				<source>You can count on me!</source>
+			</trans-unit>
+			<trans-unit id="lit-demo.counter.label" resname="lit-demo.counter.label">
+				<source>Current count</source>
+			</trans-unit>
+		</body>
+	</file>
+</xliff>

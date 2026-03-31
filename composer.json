@@ -1,0 +1,21 @@
+{
+	"name": "ochorocho/lit-demo",
+	"type": "typo3-cms-extension",
+	"description": "Lit Demo - Lit element playground for TYPO3",
+	"license": "GPL-2.0-or-later",
+	"require": {
+		"typo3/cms-core": "*",
+		"typo3/cms-backend": "*",
+		"typo3/cms-fluid": "*"
+	},
+	"autoload": {
+		"psr-4": {
+			"Ochorocho\\LitDemo\\": "Classes/"
+		}
+	},
+	"extra": {
+		"typo3/cms": {
+			"extension-key": "lit_demo"
+		}
+	}
+}
