@@ -1,0 +1,33 @@
+@keyframes marquee-content {
+    from {
+        transform: translateX(-20%);
+    }
+    to {
+        transform: translateX(100%);
+    }
+}
+
+.marquee {
+    display: flex;
+    overflow: hidden;
+    white-space: nowrap;
+}
+
+.marquee__item {
+    display: block;
+    width: 100%;
+    animation-duration: 4s;
+    animation-iteration-count: infinite;
+    animation-name: marquee-content;
+    animation-timing-function: linear;
+}
+
+/**
+Crosses the shadow DOM - Shadow DOM piercing
+Details: https://developer.mozilla.org/en-US/docs/Web/CSS/Reference/Properties
+If the property in question is set "Inherited: yes" it
+will cross the shadow DOM
+*/
+.module-body-container {
+    --icon-color-primary: orange;
+}
