@@ -1,11 +1,11 @@
-import { LitElement, html, css, nothing } from 'lit';
+import {LitElement, html, css, nothing} from 'lit';
 import {lll} from '@typo3/core/lit-helper.js';
 
 export class Counter extends LitElement {
     static properties = {
-        start: { type: Number, attribute: 'start' },
-        _counter: { state: true },
-        _pattern: { state: true },
+        start: {type: Number, attribute: 'start'},
+        _counter: {state: true},
+        _pattern: {state: true},
     };
 
     // Define component specific CSS
@@ -33,7 +33,11 @@ export class Counter extends LitElement {
             <div class="card">
                 <div class="card-header">
                     <div class="card-icon">
-                        <typo3-backend-icon identifier="lit-demo-logo" size="medium" aria-hidden="true"></typo3-backend-icon>
+                        <typo3-backend-icon 
+                                identifier="lit-demo-logo" 
+                                size="medium"
+                                aria-hidden="true">
+                        </typo3-backend-icon>
                     </div>
                     <div class="card-header-body">
                         <h2 class="card-title">
@@ -45,19 +49,27 @@ export class Counter extends LitElement {
                     <p class="card-text">
                         ${lll('lit-demo.counter.label')}: ${this._counter}
 
-                        <div class="marquee">
-                            <div class="marquee__item">
-                                ${this.vengaBus() ? '🚌🎶... The VengaBus is coming ... 🎶 🚌' : nothing}
-                            </div>
+                    <div class="marquee">
+                        <div class="marquee__item">
+                            ${this.vengaBus() ? '🚌🎶... The VengaBus is coming ... 🎶 🚌' : nothing}
                         </div>
+                    </div>
                     </p>
                 </div>
                 <div class="card-footer">
                     <button @click="${this.countUp}" class="btn btn-primary">
-                        <typo3-backend-icon identifier="actions-arrow-up-alt" size="small" aria-hidden="true"></typo3-backend-icon>
+                        <typo3-backend-icon 
+                                identifier="actions-arrow-up-alt"
+                                size="small"
+                                aria-hidden="true">
+                        </typo3-backend-icon>
                     </button>
                     <button @click="${this.countDown}" class="btn btn-secondary">
-                        <typo3-backend-icon identifier="actions-arrow-down-alt" size="small" aria-hidden="true"></typo3-backend-icon>
+                        <typo3-backend-icon 
+                                identifier="actions-arrow-down-alt" 
+                                size="small"
+                                aria-hidden="true">
+                        </typo3-backend-icon>
                     </button>
                 </div>
             </div>
@@ -75,7 +87,7 @@ export class Counter extends LitElement {
     }
 
     vengaBus() {
-        let expectedPattern = [1,0,1,0,1,0,1,0]
+        let expectedPattern = [1, 0, 1, 0, 1, 0, 1, 0]
         return this._pattern.length === expectedPattern.length && this._pattern.every((val, i) => val === expectedPattern[i]);
     }
 
