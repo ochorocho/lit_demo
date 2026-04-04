@@ -10,16 +10,15 @@ steps are required to install EXT:lit_demo:
 2. Clone the demo repository: `git clone git@github.com:ochorocho/lit_demo.git`
 3. Install the extension: `ddev composer req ochorocho/lit-demo:@dev`
 
-
 ## Challenge
 
-### Create a WebComponent to display the weather data
+### a) Create a WebComponent to display the weather data
 
 1. Fetch data from the weather API: `https://api.open-meteo.com/v1/forecast?latitude=28.33&longitude=-14.01&hourly=temperature_2m`
 2. Loop over the provided `hourly` data (`time`, `temperature_2m`)
 3. Create a graph with the collected data
 
-### Query GitHub user stats
+### b) Query GitHub user stats
 
 1. Fetch your GitHub Users Repo `https://api.github.com/users/{user}/repos?per_page=100&page=1`
 2. Loop over the returned repos and collect the 'url'
