@@ -3,7 +3,7 @@ import {lll} from '@typo3/core/lit-helper.js';
 
 export class Counter extends LitElement {
     static properties = {
-        start: {type: Number, attribute: 'start'},
+        start: {type: Number, attribute: 'start', reflect: true},
         _counter: {state: true},
         _pattern: {state: true},
     };
@@ -27,6 +27,14 @@ export class Counter extends LitElement {
         // Initialize the internal state with the attribute start="X"
         this._counter = this.start;
     }
+
+    // Do something when a particular property changes
+    // updated(changedProperties) {
+    //     super.updated(changedProperties);
+    //     if(changedProperties.has('_counter')) {
+    //         this.start = this._counter;
+    //     }
+    // }
 
     render() {
         return html`
@@ -64,6 +72,13 @@ export class Counter extends LitElement {
                                 aria-hidden="true">
                         </typo3-backend-icon>
                     </button>
+                    <button @click="${this.countReset}" class="btn btn-primary">
+                        <typo3-backend-icon 
+                                identifier="actions-undo"
+                                size="small"
+                                aria-hidden="true">
+                        </typo3-backend-icon> reset
+                    </button>
                     <button @click="${this.countDown}" class="btn btn-secondary">
                         <typo3-backend-icon 
                                 identifier="actions-arrow-down-alt" 
@@ -81,6 +96,11 @@ export class Counter extends LitElement {
         this._pattern.push(this._counter);
     }
 
+    countReset() {
+        this._counter = this.start;
+        this._pattern = [];
+    }
+
     countDown() {
         this._counter--;
         this._pattern.push(this._counter);
@@ -93,7 +113,7 @@ export class Counter extends LitElement {
 
     // Disable the shadow-root
     // - if disabled (uncommented), CSS from outside the component will be applied
-    // - if enabled (remove the following code), only specific
+    // - if enabled (remove the following code), only
     createRenderRoot() {
         return this;
     }
