@@ -6,3 +6,8 @@ services:
 
   Ochorocho\LitDemo\:
     resource: '../Classes/*'
+
+  Ochorocho\LitDemo\Security\ApiCspProvider:
+    tags:
+      - name: csp.policy-provider
+        identifier: 'lit-demo/csp-provider'
