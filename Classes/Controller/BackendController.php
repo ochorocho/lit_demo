@@ -20,8 +20,6 @@ final readonly class BackendController
 
     public function indexAction(ServerRequestInterface $request): ResponseInterface
     {
-        // Add inline labels to be used with the lit-helper e.g. lll('label-identifier')
-        $this->pageRenderer->addInlineLanguageLabelFile('EXT:lit_demo/Resources/Private/Language/locallang.xlf');
         $this->pageRenderer->addCssFile('EXT:lit_demo/Resources/Public/Css/lit-demo.css');
         $this->pageRenderer->loadJavaScriptModule('@ochorocho/lit-demo/app.js');
 

@@ -1,5 +1,5 @@
 import {LitElement, html, css, nothing} from 'lit';
-import {lll} from '@typo3/core/lit-helper.js';
+import componentLabels from '~labels/lit_demo.components'
 
 export class Counter extends LitElement {
     static properties = {
@@ -49,13 +49,13 @@ export class Counter extends LitElement {
                     </div>
                     <div class="card-header-body">
                         <h2 class="card-title">
-                            ${lll('lit-demo.title')}
+                            ${componentLabels.get('lit-demo.title')}
                         </h2>
                     </div>
                 </div>
                 <div class="card-body">
                     <p class="card-text">
-                        ${lll('lit-demo.counter.label')}: ${this._counter}
+                        ${componentLabels.get('lit-demo.counter.label')}: ${this._counter}
 
                     <div class="marquee">
                         <div class="marquee__item">
