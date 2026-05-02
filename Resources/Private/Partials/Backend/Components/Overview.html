@@ -1,0 +1,39 @@
+<html xmlns:f="http://typo3.org/ns/TYPO3/CMS/Fluid/ViewHelpers"
+      data-namespace-typo3-fluid="true">
+
+<h1><f:translate key="LLL:EXT:lit_demo/Resources/Private/Language/locallang_mod_component.xlf:group.overview" /></h1>
+<p>
+    <f:translate key="LLL:EXT:lit_demo/Resources/Private/Language/locallang_mod_component.xlf:group.overview.description" />
+</p>
+
+<div class="card-container">
+    <f:for each="{groups}" as="group">
+        <f:if condition="{group} != 'overview'">
+            <div class="card card-size-small">
+                <div class="card-header">
+                    <div class="card-header-body">
+                        <h2 class="card-title">
+                            <f:translate key="LLL:EXT:lit_demo/Resources/Private/Language/locallang_mod_component.xlf:group.{group}" />
+                        </h2>
+                    </div>
+                </div>
+                <div class="card-body">
+                    <p>
+                        <f:translate key="LLL:EXT:lit_demo/Resources/Private/Language/locallang_mod_component.xlf:group.{group}.description" />
+                    </p>
+                </div>
+                <div class="card-footer">
+                    <f:be.link
+                        route="{routeIdentifier}"
+                        parameters="{group: group}"
+                        class="btn btn-default"
+                    >
+                        <f:translate key="LLL:EXT:lit_demo/Resources/Private/Language/locallang_mod_component.xlf:overview.openLink" />
+                    </f:be.link>
+                </div>
+            </div>
+        </f:if>
+    </f:for>
+</div>
+
+</html>

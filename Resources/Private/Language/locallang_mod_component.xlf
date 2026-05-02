@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2">
+	<file source-language="en" datatype="plaintext" original="messages" date="2026-04-26T00:00:00Z" product-name="lit_demo">
+		<body>
+			<trans-unit id="mlang_tabs_tab" resname="mlang_tabs_tab">
+				<source>Core Web Components</source>
+			</trans-unit>
+
+			<trans-unit id="overview.openLink" resname="overview.openLink">
+				<source>Open</source>
+			</trans-unit>
+
+			<trans-unit id="group.overview" resname="group.overview">
+				<source>Overview</source>
+			</trans-unit>
+			<trans-unit id="group.overview.description" resname="group.overview.description">
+				<source>Browse all curated TYPO3 Core web components by category. Each demo includes the rendered element, the HTML source, and the JS-module import you need to use it in your own backend module.</source>
+			</trans-unit>
+
+			<trans-unit id="group.iconsMedia" resname="group.iconsMedia">
+				<source>Icons &amp; Media</source>
+			</trans-unit>
+			<trans-unit id="group.iconsMedia.description" resname="group.iconsMedia.description">
+				<source>Visual elements: icons, spinners, lazy thumbnails, and QR codes.</source>
+			</trans-unit>
+
+			<trans-unit id="group.feedback" resname="group.feedback">
+				<source>Feedback</source>
+			</trans-unit>
+			<trans-unit id="group.feedback.description" resname="group.feedback.description">
+				<source>Status communication: alerts, progress bars, multi-stage progress trackers and toast notifications.</source>
+			</trans-unit>
+
+			<trans-unit id="group.forms" resname="group.forms">
+				<source>Form Elements</source>
+			</trans-unit>
+			<trans-unit id="group.forms.description" resname="group.forms.description">
+				<source>Form input enhancements: color pickers, datetime pickers, combobox autocomplete, character counters and the table wizard.</source>
+			</trans-unit>
+
+			<trans-unit id="group.modals" resname="group.modals">
+				<source>Modals &amp; Dialogs</source>
+			</trans-unit>
+			<trans-unit id="group.modals.description" resname="group.modals.description">
+				<source>Programmatic and declarative modal dialogs.</source>
+			</trans-unit>
+
+			<trans-unit id="group.editor" resname="group.editor">
+				<source>Code Editor</source>
+			</trans-unit>
+			<trans-unit id="group.editor.description" resname="group.editor.description">
+				<source>The CodeMirror 6 wrapper used across the backend, with examples for HTML, PHP and JSON modes.</source>
+			</trans-unit>
+
+			<trans-unit id="group.navigation" resname="group.navigation">
+				<source>Navigation</source>
+			</trans-unit>
+			<trans-unit id="group.navigation.description" resname="group.navigation.description">
+				<source>Breadcrumbs, scrollable tabs and pagination controls.</source>
+			</trans-unit>
+
+			<trans-unit id="group.editing" resname="group.editing">
+				<source>Editing &amp; Interaction</source>
+			</trans-unit>
+			<trans-unit id="group.editing.description" resname="group.editing.description">
+				<source>Inline-editable titles, draggable / resizable boxes, and copy-to-clipboard buttons.</source>
+			</trans-unit>
+
+			<trans-unit id="group.theme" resname="group.theme">
+				<source>Theme</source>
+			</trans-unit>
+			<trans-unit id="group.theme.description" resname="group.theme.description">
+				<source>Light / dark / auto color scheme switching for the backend.</source>
+			</trans-unit>
+		</body>
+	</file>
+</xliff>

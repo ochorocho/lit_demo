@@ -1,0 +1,48 @@
+<html xmlns:f="http://typo3.org/ns/TYPO3/CMS/Fluid/ViewHelpers"
+      xmlns:ld="http://typo3.org/ns/Ochorocho/LitDemo/ViewHelpers"
+      data-namespace-typo3-fluid="true">
+
+<h1><f:translate key="LLL:EXT:lit_demo/Resources/Private/Language/locallang_mod_component.xlf:group.theme" /></h1>
+<p><f:translate key="LLL:EXT:lit_demo/Resources/Private/Language/locallang_mod_component.xlf:group.theme.description" /></p>
+
+<h2>typo3-backend-color-scheme-switch</h2>
+<p>
+    Three-way switch for the backend color scheme: <em>light</em>, <em>dark</em>, or <em>auto</em> (follows the OS).
+    Persists the choice on the current backend user via the user-settings endpoint.
+</p>
+<p>
+    The component is designed to live inside the user-toolbar dropdown
+    (<code>#typo3-cms-backend-backend-toolbaritems-usertoolbaritem</code>), so two pieces of
+    styling are inherited from its production ancestor and would otherwise be missing here:
+</p>
+<ul>
+    <li>
+        The toggle / chevron buttons rely on <code>color-scheme: only dark</code> propagated from
+        <code>.scaffold-header</code> — without it, their <code>:hover</code> background sits on a
+        near-white panel and is barely perceptible.
+    </li>
+    <li>
+        The <code>&lt;button class="dropdown-item"&gt;</code> entries (Light / Dark / Auto) use
+        <code>--typo3-dropdown-item-hover-bg</code>, which is only declared inside
+        <code>.dropdown-menu</code>; without that ancestor the hover background falls through to
+        <code>transparent</code>.
+    </li>
+</ul>
+<p>
+    To make the demo accurately reflect production styling we re-declare the relevant variables
+    on the switch element itself via the <code>.lit-demo-content typo3-backend-color-scheme-switch</code>
+    selector in <code>lit-demo.css</code>.
+</p>
+<ld:example codeLanguage="html" import="@typo3/backend/color-scheme-switch">
+    <typo3-backend-color-scheme-switch
+            togglelabel="Toggle color scheme"
+            disabledlabel="Color scheme is forced by your OS"
+            activecolorscheme="auto"
+            colorschemes='[
+                {"label":"Light","icon":"actions-brightness-high","value":"light"},
+                {"label":"Dark","icon":"actions-moon","value":"dark"},
+                {"label":"Auto","icon":"actions-circle-half","value":"auto"}
+            ]'></typo3-backend-color-scheme-switch>
+</ld:example>
+
+</html>

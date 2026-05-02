@@ -1,0 +1,43 @@
+<html xmlns:f="http://typo3.org/ns/TYPO3/CMS/Fluid/ViewHelpers"
+      xmlns:ld="http://typo3.org/ns/Ochorocho/LitDemo/ViewHelpers"
+      data-namespace-typo3-fluid="true">
+
+<h1><f:translate key="LLL:EXT:lit_demo/Resources/Private/Language/locallang_mod_component.xlf:group.editing" /></h1>
+<p><f:translate key="LLL:EXT:lit_demo/Resources/Private/Language/locallang_mod_component.xlf:group.editing.description" /></p>
+
+<h2>typo3-backend-editable-page-title</h2>
+<p>Inline-editable page title with save / cancel actions. Demonstrated here in read-only mode (no backend record).</p>
+<ld:example codeLanguage="html" import="@typo3/backend/element/editable-page-title">
+    <typo3-backend-editable-page-title pagetitle="Click me to start editing" pageid="0">
+        <h1>Click me to start editing</h1>
+    </typo3-backend-editable-page-title>
+</ld:example>
+
+<h2>typo3-backend-draggable-resizable</h2>
+<p>Wraps any element with drag handles and resize knobs. Useful for crop / annotation interfaces.</p>
+<ld:example codeLanguage="html" import="@typo3/backend/element/draggable-resizable-element">
+    <div style="position: relative; width: 100%; height: 220px; background: var(--typo3-component-bg-emphasis, #f5f5f5); border: 1px solid var(--typo3-component-border-color, #ddd); border-radius: 4px;">
+        <typo3-backend-draggable-resizable
+            offset-x="40"
+            offset-y="20"
+            width="160"
+            height="100"
+            container=".lit-demo-example-render"
+            style="background: rgba(255, 135, 0, .35); border: 2px dashed #ff8700;">
+            Drag &amp; resize
+        </typo3-backend-draggable-resizable>
+    </div>
+</ld:example>
+
+<h2>typo3-copy-to-clipboard</h2>
+<p>Button that copies arbitrary text to the clipboard and emits a success notification.</p>
+<ld:example codeLanguage="html" import="@typo3/backend/copy-to-clipboard">
+    <typo3-copy-to-clipboard
+        class="btn btn-default"
+        text="Copied from typo3-copy-to-clipboard demo">
+        <typo3-backend-icon identifier="actions-clipboard" size="small"></typo3-backend-icon>
+        Copy snippet
+    </typo3-copy-to-clipboard>
+</ld:example>
+
+</html>

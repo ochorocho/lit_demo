@@ -28,6 +28,111 @@ Details: https://developer.mozilla.org/en-US/docs/Web/CSS/Reference/Properties
 If the property in question is set "Inherited: yes" it
 will cross the shadow DOM
 */
-.module-body-container {
+.module-body-container .demo {
     --icon-color-primary: orange;
+}
+
+
+/* ---------- Web Components reference module layout ---------- */
+
+.lit-demo-layout {
+    display: flex;
+    gap: 1.5rem;
+    align-items: flex-start;
+}
+
+.lit-demo-navigation {
+    flex: 0 0 240px;
+    position: sticky;
+    top: 1rem;
+}
+
+.lit-demo-navigation .list-group-item.active {
+    background-color: var(--typo3-state-primary-bg, #006bb1);
+    border-color: var(--typo3-state-primary-bg, #006bb1);
+    color: #fff;
+}
+
+.lit-demo-content {
+    flex: 1;
+    min-width: 0;
+}
+
+.lit-demo-content > h1 {
+    margin-top: 0;
+}
+
+.lit-demo-content > h2 {
+    margin-top: 2rem;
+    padding-bottom: .25rem;
+    border-bottom: 1px solid var(--typo3-component-border-color, #ddd);
+}
+
+.lit-demo-content > h3 {
+    margin-top: 1.25rem;
+}
+
+/* Demo + code tile rendered by <ld:example> */
+.lit-demo-example {
+    margin-bottom: 1.5rem;
+    border-radius: 4px;
+    overflow: hidden;
+}
+
+.lit-demo-example-code {
+    display: flex;
+    flex-direction: column;
+}
+
+.lit-demo-example-code typo3-t3editor-codemirror {
+    flex: 1;
+    min-height: 0;
+}
+
+.lit-demo-example-import {
+    padding: .5rem 0rem;
+    font-size: .85em;
+}
+
+.lit-demo-example-import-label {
+    display: inline-block;
+    padding: 0 .35em;
+    margin-right: .35em;
+    border-radius: 3px;
+    background: var(--typo3-state-info-bg, #cfe6f5);
+    color: var(--typo3-state-info-color, #004a7a);
+    font-size: .75em;
+    font-family: var(--bs-font-sans-serif, sans-serif);
+    text-transform: uppercase;
+    letter-spacing: .05em;
+    vertical-align: middle;
+}
+
+.lit-demo-example-import code {
+    background: transparent;
+    padding: 0;
+    color: inherit;
+    font-size: 1em;
+}
+
+.lit-demo-example-import-note {
+    color: var(--typo3-component-color-emphasis, #555);
+    font-style: italic;
+}
+
+/* Faux topbar-dropdown chrome — see Sass/component/_root.scss line 565.
+ * The color-scheme-switch inherits color-scheme: only dark from .scaffold-header
+ * in production. We reproduce that subtree so its hover state has the same contrast
+ * as in #typo3-cms-backend-backend-toolbaritems-usertoolbaritem. */
+.lit-demo-topbar-chrome {
+    color-scheme: only dark;
+    background: var(--typo3-component-bg);
+    color: var(--typo3-component-color);
+    border-radius: var(--typo3-component-border-radius, 4px);
+    padding: var(--typo3-list-item-padding-y, .5rem) 0;
+    max-width: 18rem;
+}
+
+typo3-backend-icon {
+    display: flex;
 }

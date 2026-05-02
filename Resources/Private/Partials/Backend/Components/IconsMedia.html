@@ -1,0 +1,67 @@
+<html xmlns:f="http://typo3.org/ns/TYPO3/CMS/Fluid/ViewHelpers"
+      xmlns:ld="http://typo3.org/ns/Ochorocho/LitDemo/ViewHelpers"
+      data-namespace-typo3-fluid="true">
+
+<h1><f:translate key="LLL:EXT:lit_demo/Resources/Private/Language/locallang_mod_component.xlf:group.iconsMedia" /></h1>
+<p><f:translate key="LLL:EXT:lit_demo/Resources/Private/Language/locallang_mod_component.xlf:group.iconsMedia.description" /></p>
+
+<h2>typo3-backend-icon</h2>
+<p>Renders any icon from the TYPO3 icon registry. Supports five sizes and severity overlays.</p>
+<ld:example codeLanguage="html" import="@typo3/backend/element/icon-element">
+    <typo3-backend-icon identifier="actions-check" size="small"></typo3-backend-icon>
+    <typo3-backend-icon identifier="actions-check" size="default"></typo3-backend-icon>
+
+    <typo3-backend-icon identifier="actions-check" size="medium"></typo3-backend-icon>
+    <typo3-backend-icon identifier="actions-check" size="large"></typo3-backend-icon>
+    <typo3-backend-icon identifier="actions-check" size="mega"></typo3-backend-icon>
+</ld:example>
+
+<h3>With overlay icon</h3>
+<ld:example codeLanguage="html" import="@typo3/backend/element/icon-element">
+    <typo3-backend-icon identifier="apps-pagetree-page-default" overlay="overlay-edit" size="medium"></typo3-backend-icon>
+    <typo3-backend-icon identifier="mimetypes-text-html" overlay="overlay-readonly" size="medium"></typo3-backend-icon>
+</ld:example>
+
+<h2>typo3-backend-spinner</h2>
+<p>Animated loading spinner. Inherits the surrounding text color via <code>currentColor</code>.</p>
+<ld:example codeLanguage="html" import="@typo3/backend/element/spinner-element">
+    <typo3-backend-spinner size="small"></typo3-backend-spinner>
+    <typo3-backend-spinner size="default"></typo3-backend-spinner>
+    <typo3-backend-spinner size="medium"></typo3-backend-spinner>
+    <typo3-backend-spinner size="large"></typo3-backend-spinner>
+</ld:example>
+
+<h2>typo3-backend-thumbnail</h2>
+<p>Lazy-loads an image with automatic fallback to a not-found icon when the URL is unreachable.</p>
+<ld:example codeLanguage="html" import="@typo3/backend/element/thumbnail-element">
+    <typo3-backend-thumbnail
+        url="/typo3conf/ext/lit_demo/Resources/Public/Icons/Extension.svg"
+        size="medium"
+        keepAspectRatio="true"></typo3-backend-thumbnail>
+    <typo3-backend-thumbnail
+        url="/non-existing-image.png"
+        size="medium"></typo3-backend-thumbnail>
+</ld:example>
+
+<h2>typo3-qrcode</h2>
+<p>Generates a QR code from arbitrary content client-side. Optional URL and download buttons.</p>
+<ld:example codeLanguage="html" import="@typo3/backend/element/qrcode-element">
+    <typo3-qrcode
+        content="https://typo3.org"
+        size="default"
+        showUrl="true"
+        showDownload="true"></typo3-qrcode>
+</ld:example>
+
+<h2>typo3-qrcode-modal-button</h2>
+<p>Button that opens the QR code in a modal dialog.</p>
+<ld:example codeLanguage="html" import="@typo3/backend/element/qrcode-modal-button">
+    <typo3-qrcode-modal-button
+        class="btn btn-default"
+        data-content="https://typo3.org"
+        data-modal-title="Scan to open typo3.org">
+        Show QR code
+    </typo3-qrcode-modal-button>
+</ld:example>
+
+</html>

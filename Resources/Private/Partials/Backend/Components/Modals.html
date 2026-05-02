@@ -1,0 +1,45 @@
+<html xmlns:f="http://typo3.org/ns/TYPO3/CMS/Fluid/ViewHelpers"
+      xmlns:ld="http://typo3.org/ns/Ochorocho/LitDemo/ViewHelpers"
+      data-namespace-typo3-fluid="true">
+
+<h1><f:translate key="LLL:EXT:lit_demo/Resources/Private/Language/locallang_mod_component.xlf:group.modals" /></h1>
+<p><f:translate key="LLL:EXT:lit_demo/Resources/Private/Language/locallang_mod_component.xlf:group.modals.description" /></p>
+
+<h2>typo3-backend-modal (programmatic via Modal API)</h2>
+<p>Modals are typically opened from JavaScript using <code>Modal.advanced()</code>. The button below triggers a small click handler shipped with this demo module.</p>
+<ld:example codeLanguage="html" import="@typo3/backend/modal" importNote="default export: Modal">
+    <button type="button" class="btn btn-primary" data-lit-demo-modal-trigger="default">
+        Open default modal
+    </button>
+    <button type="button" class="btn btn-warning" data-lit-demo-modal-trigger="confirm">
+        Open confirmation modal
+    </button>
+</ld:example>
+
+<h3>JavaScript usage</h3>
+<ld:example codeLanguage="javascript" import="@typo3/backend/modal" importNote="default export: Modal" codePreview="true" customCode='import Modal from "@typo3/backend/modal";
+
+Modal.advanced({
+    title: "Demo modal",
+    content: "Body text or HTML.",
+    severity: SeverityEnum.info,
+    buttons: [
+        { text: "Cancel", btnClass: "btn-default", trigger: () =&gt; Modal.dismiss() },
+        { text: "OK", btnClass: "btn-primary", trigger: () =&gt; Modal.dismiss() },
+    ],
+});'>
+    <em>(See code on the right.)</em>
+</ld:example>
+
+<h2>typo3-backend-dispatch-modal-button</h2>
+<p>Declarative trigger: clicking the button emits a custom event that backend code can listen to. Useful for backend modules that wire dispatch handlers in JS.</p>
+<ld:example codeLanguage="html" import="@typo3/backend/element/dispatch-modal-button">
+    <typo3-backend-dispatch-modal-button
+        class="btn btn-default"
+        dispatch-action="TYPO3.InfoWindow.showItem()"
+        dispatch-args='["pages",1]'>
+        Dispatch action
+    </typo3-backend-dispatch-modal-button>
+</ld:example>
+
+</html>

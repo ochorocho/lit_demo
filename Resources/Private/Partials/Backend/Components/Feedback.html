@@ -1,0 +1,48 @@
+<html xmlns:f="http://typo3.org/ns/TYPO3/CMS/Fluid/ViewHelpers"
+      xmlns:ld="http://typo3.org/ns/Ochorocho/LitDemo/ViewHelpers"
+      data-namespace-typo3-fluid="true">
+
+<h1><f:translate key="LLL:EXT:lit_demo/Resources/Private/Language/locallang_mod_component.xlf:group.feedback" /></h1>
+<p><f:translate key="LLL:EXT:lit_demo/Resources/Private/Language/locallang_mod_component.xlf:group.feedback.description" /></p>
+
+<h2>typo3-backend-alert</h2>
+<p>Inline alert box with severity styling, optional heading, message, icon, and dismiss button.</p>
+<ld:example codeLanguage="html" import="@typo3/backend/element/alert-element">
+    <typo3-backend-alert severity="info" heading="Info" message="Heads up — this is an informational alert." showIcon visible></typo3-backend-alert>
+    <typo3-backend-alert severity="ok" heading="Success" message="The record has been saved." showIcon visible></typo3-backend-alert>
+    <typo3-backend-alert severity="warning" heading="Warning" message="This action cannot be undone." showIcon visible dismissible></typo3-backend-alert>
+    <typo3-backend-alert severity="error" heading="Error" message="Something went wrong." showIcon visible dismissible></typo3-backend-alert>
+</ld:example>
+
+<h2>typo3-backend-progress-bar</h2>
+<p>Progress bar with determinate value or indeterminate animation. Severity color picks one of the standard severities.</p>
+<ld:example codeLanguage="html" import="@typo3/backend/element/progress-bar-element">
+    <typo3-backend-progress-bar value="25" max="100" label="25% — uploading"></typo3-backend-progress-bar>
+    <typo3-backend-progress-bar value="60" max="100" severity="ok" label="60% — almost there"></typo3-backend-progress-bar>
+    <typo3-backend-progress-bar value="100" max="100" severity="ok" label="Done"></typo3-backend-progress-bar>
+    <typo3-backend-progress-bar label="Indeterminate (no value attribute)"></typo3-backend-progress-bar>
+</ld:example>
+
+<h2>typo3-backend-progress-tracker</h2>
+<p>Multi-stage progress indicator. Each stage is a string, <code>active</code> picks the current stage (zero-indexed).</p>
+<ld:example codeLanguage="html" import="@typo3/backend/element/progress-tracker-element">
+    <typo3-backend-progress-tracker
+        stages='["Choose","Configure","Review","Save"]'
+        active="2"></typo3-backend-progress-tracker>
+</ld:example>
+
+<h2>Notification API</h2>
+<p>Toast notifications are triggered programmatically. The button below uses the <code>Notification</code> service.</p>
+<ld:example codeLanguage="html" import="@typo3/backend/notification" importNote="default export: Notification">
+    <button type="button" class="btn btn-default" data-lit-demo-notification="success">
+        Show success toast
+    </button>
+    <button type="button" class="btn btn-default" data-lit-demo-notification="warning">
+        Show warning toast
+    </button>
+    <button type="button" class="btn btn-default" data-lit-demo-notification="error">
+        Show error toast
+    </button>
+</ld:example>
+
+</html>

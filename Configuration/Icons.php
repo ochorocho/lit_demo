@@ -7,4 +7,8 @@ return [
         'provider' => SvgIconProvider::class,
         'source' => 'EXT:lit_demo/Resources/Public/Icons/Extension.svg',
     ],
+    'lit-demo-logo-component' => [
+        'provider' => SvgIconProvider::class,
+        'source' => 'EXT:lit_demo/Resources/Public/Icons/Component.svg',
+    ],
 ];

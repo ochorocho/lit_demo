@@ -1,0 +1,57 @@
+<html xmlns:f="http://typo3.org/ns/TYPO3/CMS/Fluid/ViewHelpers"
+      xmlns:ld="http://typo3.org/ns/Ochorocho/LitDemo/ViewHelpers"
+      data-namespace-typo3-fluid="true">
+
+<h1><f:translate key="LLL:EXT:lit_demo/Resources/Private/Language/locallang_mod_component.xlf:group.navigation" /></h1>
+<p><f:translate key="LLL:EXT:lit_demo/Resources/Private/Language/locallang_mod_component.xlf:group.navigation.description" /></p>
+
+<h2>typo3-breadcrumb</h2>
+<p>Responsive breadcrumb. Auto-collapses overflowing nodes into a dropdown when the container is too narrow.</p>
+<ld:example codeLanguage="html" import="@typo3/backend/element/breadcrumb">
+    <typo3-breadcrumb
+        label="You are here"
+        nodes='[
+            {"label":"Home","href":"#","icon":"actions-home"},
+            {"label":"Web","href":"#"},
+            {"label":"Page","href":"#"},
+            {"label":"Sub page","href":"#"},
+            {"label":"Current"}
+        ]'></typo3-breadcrumb>
+</ld:example>
+
+<h2>typo3-backend-tab-scroller</h2>
+<p>
+    Wraps a Bootstrap-style tab list (<code>&lt;ul class="nav nav-tabs" role="tablist"&gt;</code>) and adds
+    horizontal scroll buttons when the tabs overflow. Tab activation is handled by
+    <code>@typo3/backend/tab</code> — the <code>data-typo3-tab</code> attribute on each link points to the
+    corresponding <code>.tab-pane</code>.
+</p>
+<ld:example codeLanguage="html" import="@typo3/backend/tab">
+    <typo3-backend-tab-scroller>
+        <ul class="nav nav-tabs" role="tablist">
+            <li class="nav-item" role="presentation"><button type="button" role="tab" class="nav-link active" data-typo3-tab="#lit-demo-tab-general" aria-selected="true">General</button></li>
+            <li class="nav-item" role="presentation"><button type="button" role="tab" class="nav-link" data-typo3-tab="#lit-demo-tab-access" aria-selected="false">Access</button></li>
+            <li class="nav-item" role="presentation"><button type="button" role="tab" class="nav-link" data-typo3-tab="#lit-demo-tab-meta" aria-selected="false">Metadata</button></li>
+            <li class="nav-item" role="presentation"><button type="button" role="tab" class="nav-link" data-typo3-tab="#lit-demo-tab-appearance" aria-selected="false">Appearance</button></li>
+            <li class="nav-item" role="presentation"><button type="button" role="tab" class="nav-link" data-typo3-tab="#lit-demo-tab-resources" aria-selected="false">Resources</button></li>
+            <li class="nav-item" role="presentation"><button type="button" role="tab" class="nav-link" data-typo3-tab="#lit-demo-tab-extras" aria-selected="false">Extras</button></li>
+        </ul>
+    </typo3-backend-tab-scroller>
+    <div class="tab-content">
+        <div class="tab-pane active" id="lit-demo-tab-general"><p>General settings panel.</p></div>
+        <div class="tab-pane" id="lit-demo-tab-access"><p>Access permissions panel.</p></div>
+        <div class="tab-pane" id="lit-demo-tab-meta"><p>Metadata panel.</p></div>
+        <div class="tab-pane" id="lit-demo-tab-appearance"><p>Appearance panel.</p></div>
+        <div class="tab-pane" id="lit-demo-tab-resources"><p>Resources panel.</p></div>
+        <div class="tab-pane" id="lit-demo-tab-extras"><p>Extras panel.</p></div>
+    </div>
+</ld:example>
+
+<h2>typo3-backend-pagination</h2>
+<p>Page-based pagination control. Emits a <code>typo3:pagination:goto</code> event on navigation.</p>
+<ld:example codeLanguage="html" import="@typo3/backend/element/pagination">
+    <typo3-backend-pagination
+        paging='{"currentPage":3,"totalPages":12,"firstPage":1,"lastPage":12,"nextPage":4,"previousPage":2,"startRecordNumber":21,"endRecordNumber":30}'></typo3-backend-pagination>
+</ld:example>
+
+</html>

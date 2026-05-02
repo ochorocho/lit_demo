@@ -1,0 +1,50 @@
+<html xmlns:f="http://typo3.org/ns/TYPO3/CMS/Fluid/ViewHelpers"
+      xmlns:ld="http://typo3.org/ns/Ochorocho/LitDemo/ViewHelpers"
+      data-namespace-typo3-fluid="true">
+
+<h1><f:translate key="LLL:EXT:lit_demo/Resources/Private/Language/locallang_mod_component.xlf:group.editor" /></h1>
+<p><f:translate key="LLL:EXT:lit_demo/Resources/Private/Language/locallang_mod_component.xlf:group.editor.description" /></p>
+
+<h2>typo3-t3editor-codemirror</h2>
+<p>
+    CodeMirror 6 wrapper. Use the <code>mode</code> attribute to pick a syntax — the value is the JS module returned by
+    the registered <code>ModeRegistry</code>. The element wraps a regular <code>&lt;textarea&gt;</code>; its content
+    becomes the editor buffer.
+</p>
+
+<h3>HTML</h3>
+<ld:example codeLanguage="html" import="@typo3/backend/code-editor/element/code-mirror-element">
+    <typo3-t3editor-codemirror mode='{"name":"@codemirror/lang-html","exportName":"html","flags":2,"items":[{"type":"invoke","method":null,"args":[]}]}'>
+        <textarea rows="6" wrap="off">&lt;typo3-backend-icon
+    identifier=&quot;actions-check&quot;
+    size=&quot;default&quot;&gt;
+&lt;/typo3-backend-icon&gt;</textarea>
+    </typo3-t3editor-codemirror>
+</ld:example>
+
+<h3>PHP</h3>
+<ld:example codeLanguage="html" import="@typo3/backend/code-editor/element/code-mirror-element">
+    <typo3-t3editor-codemirror mode='{"name":"@codemirror/lang-php","exportName":"php","flags":2,"items":[{"type":"invoke","method":null,"args":[]}]}'>
+        <textarea rows="6" wrap="off">&lt;?php
+
+declare(strict_types=1);
+
+final class Demo
+{
+    public function hello(): string { return 'Hi'; }
+}</textarea>
+    </typo3-t3editor-codemirror>
+</ld:example>
+
+<h3>JSON</h3>
+<ld:example codeLanguage="html" import="@typo3/backend/code-editor/element/code-mirror-element">
+    <typo3-t3editor-codemirror mode='{"name":"@codemirror/lang-json","exportName":"json","flags":2,"items":[{"type":"invoke","method":null,"args":[]}]}'>
+        <textarea rows="5" wrap="off">{
+    "name": "lit-demo",
+    "version": "1.0.0",
+    "description": "Web component demos"
+}</textarea>
+    </typo3-t3editor-codemirror>
+</ld:example>
+
+</html>

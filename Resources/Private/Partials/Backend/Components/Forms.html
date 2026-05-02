@@ -1,0 +1,105 @@
+<html xmlns:f="http://typo3.org/ns/TYPO3/CMS/Fluid/ViewHelpers"
+      xmlns:ld="http://typo3.org/ns/Ochorocho/LitDemo/ViewHelpers"
+      data-namespace-typo3-fluid="true">
+
+<h1><f:translate key="LLL:EXT:lit_demo/Resources/Private/Language/locallang_mod_component.xlf:group.forms" /></h1>
+<p><f:translate key="LLL:EXT:lit_demo/Resources/Private/Language/locallang_mod_component.xlf:group.forms.description" /></p>
+
+<h2>typo3-backend-color-picker</h2>
+<p>Wraps an <code>&lt;input type="text"&gt;</code> with the Alwan color picker. Supports preset swatches and an optional opacity slider.</p>
+<ld:example codeLanguage="html" import="@typo3/backend/color-picker">
+    <typo3-backend-color-picker swatches='[{"label":"TYPO3 orange","color":"#ff8700"},{"label":"Brand red","color":"#dc3545"},{"label":"Brand green","color":"#198754"}]'>
+        <input type="text" value="#ff8700" class="form-control">
+    </typo3-backend-color-picker>
+</ld:example>
+
+<h2>typo3-backend-datetime</h2>
+<p>
+    <strong>Display-only</strong> formatter — renders a semantic <code>&lt;time&gt;</code> element from an ISO
+    date / Unix timestamp. Modes: absolute (default) and relative (auto-updates "5 minutes ago" → "6 minutes ago"
+    every minute). The <code>format</code> attribute accepts <code>date</code>, <code>datetime</code>, or a
+    Luxon-style pattern. This is <em>not</em> an input — for an interactive picker see
+    <code>typo3-formengine-element-datetime</code> below.
+</p>
+<ld:example codeLanguage="html" import="@typo3/backend/element/datetime-element">
+    <typo3-backend-datetime datetime="2026-04-26T14:30:00Z" format="datetime"></typo3-backend-datetime>
+    <typo3-backend-datetime datetime="2026-04-26T14:30:00Z" mode="relative"></typo3-backend-datetime>
+    <typo3-backend-datetime datetime="2026-04-26T14:30:00Z" format="dd.MM.yyyy HH:mm"></typo3-backend-datetime>
+    <typo3-backend-datetime datetime="1714137000" format="date"></typo3-backend-datetime>
+</ld:example>
+
+<h2>typo3-formengine-element-datetime</h2>
+<p>
+    The interactive datetime picker used by the FormEngine. Wraps the standard form-engine markup
+    (<code>.form-control-wrap &gt; .form-wizards-wrap &gt; .input-group</code>) and initializes the
+    <em>flatpickr</em> picker on the inner <code>&lt;input&gt;</code>. Identifies the input via the
+    <code>recordFieldId</code> attribute (must match the input's <code>id</code>). Supports
+    <code>data-date-type</code> values <code>datetime</code>, <code>date</code>, <code>time</code>,
+    <code>year</code>, <code>timesec</code>, <code>datetimesec</code>.
+</p>
+<ld:example codeLanguage="html" import="@typo3/backend/form-engine/element/datetime-element">
+    <typo3-formengine-element-datetime class="formengine-field-item t3js-formengine-field-item" recordFieldId="lit-demo-datetime-input">
+        <div class="form-control-wrap" style="max-width: 280px;">
+            <div class="form-wizards-wrap">
+                <div class="form-wizards-item-element">
+                    <div class="input-group">
+                        <input id="lit-demo-datetime-input"
+                               type="text"
+                               class="form-control t3js-datetimepicker"
+                               data-input-type="datetimepicker"
+                               data-date-type="datetime"
+                               data-formengine-input-name="lit_demo[datetime]"
+                               data-formengine-input-params='{"field":"lit_demo[datetime]","evalList":""}'
+                               value="2026-04-26 14:30">
+                        <input type="hidden" name="lit_demo[datetime]" value="2026-04-26T14:30:00">
+                        <button class="btn btn-default" aria-label="Open date picker" type="button" data-global-event="click" data-action-focus="#lit-demo-datetime-input">
+                            <typo3-backend-icon identifier="actions-edit-pick-date" size="small"></typo3-backend-icon>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </typo3-formengine-element-datetime>
+</ld:example>
+
+<h2>typo3-backend-combobox</h2>
+<p>Autocomplete combobox composed of <code>typo3-backend-combobox-choice</code> children.</p>
+<ld:example codeLanguage="html" import="@typo3/backend/element/combobox-element">
+    <typo3-backend-combobox>
+        <input type="text" class="form-control" placeholder="Pick a fruit&hellip;">
+        <typo3-backend-combobox-choice value="apple">Apple</typo3-backend-combobox-choice>
+        <typo3-backend-combobox-choice value="banana">Banana</typo3-backend-combobox-choice>
+        <typo3-backend-combobox-choice value="cherry">Cherry</typo3-backend-combobox-choice>
+        <typo3-backend-combobox-choice value="date">Date</typo3-backend-combobox-choice>
+        <typo3-backend-combobox-choice value="elderberry">Elderberry</typo3-backend-combobox-choice>
+    </typo3-backend-combobox>
+</ld:example>
+
+<h2>typo3-backend-formengine-char-counter</h2>
+<p>Live character counter for an input or textarea. Bind it to a target field via the <code>target</code> attribute.</p>
+<ld:example codeLanguage="html" import="@typo3/backend/form-engine/element/extra/char-counter">
+    <label for="lit-demo-char-input" class="form-label">Short description (max 60)</label>
+    <input id="lit-demo-char-input" type="text" maxlength="60" class="form-control" value="Lit components in TYPO3">
+    <typo3-backend-formengine-char-counter target="#lit-demo-char-input"></typo3-backend-formengine-char-counter>
+</ld:example>
+
+<h2>typo3-formengine-table-wizard</h2>
+<p>
+    Interactive table editor used by the FormEngine "table" wizard. Reads its initial data from an external
+    <code>&lt;textarea&gt;</code> referenced by the <code>selector</code> attribute (rows separated by newlines,
+    columns by the configured <code>delimiter</code>).
+</p>
+<ld:example codeLanguage="html" import="@typo3/backend/form-engine/element/table-wizard-element">
+    <textarea id="lit-demo-table-data" hidden>Component|Tag|Sysext
+Icon|typo3-backend-icon|backend
+Modal|typo3-backend-modal|backend
+QR code|typo3-qrcode|backend
+Spinner|typo3-backend-spinner|backend</textarea>
+    <typo3-formengine-table-wizard
+        type="input"
+        selector="#lit-demo-table-data"
+        delimiter="|"
+        enclosure=""></typo3-formengine-table-wizard>
+</ld:example>
+
+</html>
