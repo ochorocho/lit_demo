@@ -26,5 +26,10 @@ return Map::fromEntries([
             Directive::ConnectSrc,
             new UriValue('https://api.github.com')
         ),
+        new Mutation(
+            MutationMode::Extend,
+            Directive::ConnectSrc,
+            new UriValue('https://api.chucknorris.io')
+        ),
     ),
 ]);
