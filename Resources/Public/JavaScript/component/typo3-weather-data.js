@@ -23,7 +23,11 @@ export class WeatherData extends LitElement {
         this.data = await this.fetchData();
 
         Chart.register(Colors);
-        this.chart = new Chart(this.canvas, {
+        this.chart = this.createChart()
+    }
+
+    createChart() {
+        return new Chart(this.canvas, {
             type: 'line',
             data: {
                 labels: this.data.hourly.time || [],
@@ -33,11 +37,6 @@ export class WeatherData extends LitElement {
                 }],
             },
         });
-    }
-
-    disconnectedCallback() {
-        super.disconnectedCallback();
-        this.chart?.destroy();
     }
 
     render() {
@@ -52,6 +51,7 @@ export class WeatherData extends LitElement {
                 ${this.getDate(this.data.hourly?.time.at(0))} to
                 ${this.getDate(this.data.hourly?.time.at(-1))}
             </div>
+            <button @click="${this.reloadChart}">Reload</button>
             <canvas id="chart"></canvas>
         </div>`;
     }
@@ -62,6 +62,11 @@ export class WeatherData extends LitElement {
         }
 
         return new Date(dateTime).toLocaleString();
+    }
+
+    async reloadChart() {
+        this.data = await this.fetchData();
+        this.chart.update();
     }
 
     async fetchData() {
