@@ -138,9 +138,13 @@
 
 	<f:asset.module identifier="@typo3/backend/element/draggable-resizable-element.js"></f:asset.module>
 	<h2>typo3-backend-draggable-resizable</h2>
+	<p>Internal component used by the image cropper. It requires <code>pointereventnames</code> to be set
+		(otherwise <code>connectedCallback</code> throws when accessing <code>pointerEventNames.pointerDown</code>).
+		The eight resize handles need the cropper / jQuery-UI resizable CSS to be visible.</p>
 	<div style="position: relative; width: 320px; height: 200px; background: #eee;">
 		<typo3-backend-draggable-resizable
 				offset='{"left":10,"top":10,"width":120,"height":80}'
+				pointereventnames='{"pointerDown":["pointerdown"],"pointerMove":["pointermove"],"pointerUp":["pointerup","pointercancel"]}'
 				style="background: #fff; border: 1px solid #999;">
 			Drag me
 		</typo3-backend-draggable-resizable>
@@ -159,14 +163,24 @@
 
 	<f:asset.module identifier="@typo3/backend/grid-editor.js"></f:asset.module>
 	<h2>typo3-backend-grid-editor</h2>
-	<p>Configured via <code>data</code>, <code>colCount</code>, <code>rowCount</code> properties (set imperatively or via TCA wizard).</p>
-	<typo3-backend-grid-editor colCount="2" rowCount="2" fieldName="demo"></typo3-backend-grid-editor>
+	<p>Requires a sibling hidden <code>&lt;input&gt;</code> whose <code>name</code> matches <code>fieldName</code> and a 2D <code>data</code> array of cells (<code>rowCount</code> × <code>colCount</code>).</p>
+	<input type="hidden" name="demo-grid" value="" />
+	<typo3-backend-grid-editor
+			colCount="2"
+			rowCount="2"
+			fieldName="demo-grid"
+			data='[
+				[{"spanned":0,"rowspan":1,"colspan":1,"name":"Header","colpos":"","column":0,"identifier":"","slideMode":""},{"spanned":0,"rowspan":1,"colspan":1,"name":"Top right","colpos":"","column":1,"identifier":"","slideMode":""}],
+				[{"spanned":0,"rowspan":1,"colspan":1,"name":"Main","colpos":"","column":2,"identifier":"","slideMode":""},{"spanned":0,"rowspan":1,"colspan":1,"name":"Sidebar","colpos":"","column":3,"identifier":"","slideMode":""}]
+			]'>
+	</typo3-backend-grid-editor>
 	<hr>
 
 	<f:asset.module identifier="@typo3/backend/wizard/wizard.js"></f:asset.module>
+	<f:asset.module identifier="@ochorocho/lit-demo/wizard-demo.js"></f:asset.module>
 	<h2>typo3-backend-wizard</h2>
-	<p>Steps and a submission service must be provided imperatively via JavaScript.</p>
-	<typo3-backend-wizard confirm-button-label="Finish"></typo3-backend-wizard>
+	<p>The <code>steps</code> array and <code>submissionService</code> object are declared with <code>attribute: false</code>, so they are assigned imperatively from <code>Resources/Public/JavaScript/wizard-demo.js</code>.</p>
+	<typo3-backend-wizard id="demo-wizard" confirm-button-label="Finish"></typo3-backend-wizard>
 	<hr>
 
 	<f:asset.module identifier="@typo3/backend/copy-to-clipboard.js"></f:asset.module>
@@ -174,12 +188,6 @@
 	<typo3-copy-to-clipboard text="Hello clipboard">
 		<button type="button" class="btn btn-default">Copy text</button>
 	</typo3-copy-to-clipboard>
-	<hr>
-
-	<f:asset.module identifier="@typo3/backend/element/immediate-action-element.js"></f:asset.module>
-	<h2>typo3-immediate-action</h2>
-	<p>Executes a JavaScript module method as soon as it is connected to the DOM.</p>
-	<typo3-immediate-action action="TYPO3.ModuleMenu.App.refreshMenu"></typo3-immediate-action>
 	<hr>
 
 	<f:asset.module identifier="@typo3/backend/element/dispatch-modal-button.js"></f:asset.module>
@@ -201,22 +209,33 @@
 	</typo3-qrcode-modal-button>
 	<hr>
 
-	<f:asset.module identifier="@typo3/backend/record-download-button.js"></f:asset.module>
-	<h2>typo3-recordlist-record-download-button</h2>
-	<typo3-recordlist-record-download-button
-			url="#"
-			subject="Download configuration"
-			ok="Download"
-			close="Cancel">
-		<button type="button" class="btn btn-default">Download…</button>
-	</typo3-recordlist-record-download-button>
-	<hr>
-
 	<f:asset.module identifier="@typo3/backend/code-editor/element/code-mirror-element.js"></f:asset.module>
 	<h2>typo3-t3editor-codemirror</h2>
 	<p>The <code>mode</code>/<code>addons</code>/<code>keymaps</code> properties are configured via JSON for module loading.</p>
-	<typo3-t3editor-codemirror autoheight linewrapping label="Code editor">
-		<textarea>console.log('Hello from CodeMirror');</textarea>
+	<typo3-t3editor-codemirror autoheight linewrapping
+	   mode='{"name":"@codemirror/lang-javascript","flags":2,"exportName":"javascript","items":[{"type":"invoke","method":null,"args":[]}]}'
+	   label="Code editor"
+	>
+		<textarea>
+import {LitElement, html} from 'lit';
+
+export class Typo3Surfcamp extends LitElement {
+
+    static properties = {
+        year: {type: Number, attribute: 'year'},
+    };
+
+    constructor() {
+        super();
+        this.year = 0;
+    }
+
+    render() {
+        return html`<div>TYPO3 SurfCamp ${this.year}</div>`;
+    }
+}
+
+customElements.define('typo3-surfcamp', Typo3Surfcamp);</textarea>
 	</typo3-t3editor-codemirror>
 	<hr>
 
