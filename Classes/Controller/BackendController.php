@@ -26,4 +26,11 @@ final readonly class BackendController
         $view = $this->moduleTemplateFactory->create($request);
         return $view->renderResponse('Backend/Index');
     }
+
+    public function exampleAction(ServerRequestInterface $request): ResponseInterface
+    {
+        $view = $this->moduleTemplateFactory->create($request);
+        return $view->renderResponse('Backend/Example');
+    }
+
 }

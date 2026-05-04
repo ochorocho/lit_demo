@@ -1,0 +1,225 @@
+<html xmlns:f="http://typo3.org/ns/TYPO3/CMS/Fluid/ViewHelpers"
+	  data-namespace-typo3-fluid="true">
+
+<f:layout name="Module" />
+
+<f:section name="Content">
+	<h1>Reusable Web Components</h1>
+
+	<f:asset.module identifier="@typo3/form/backend/form-editor/component/date-editor.js"></f:asset.module>
+	<h2>typo3-form-date-editor</h2>
+	<typo3-form-date-editor></typo3-form-date-editor>
+	<hr>
+
+
+	<f:asset.module identifier="@typo3/backend/element/icon-element.js"></f:asset.module>
+	<h2>typo3-backend-icon</h2>
+	<typo3-backend-icon identifier="actions-delete" size="small" overlay="overlay-readonly"></typo3-backend-icon>
+	<typo3-backend-icon identifier="actions-edit-copy" size="medium"></typo3-backend-icon>
+	<typo3-backend-icon identifier="actions-delete" size="large" overlay="overlay-readonly"></typo3-backend-icon>
+	<hr>
+
+	<f:asset.module identifier="@typo3/backend/notification.js"></f:asset.module>
+	<h2>typo3-notification-message</h2>
+	<p>Created dynamically via the <code>Notification</code> API. Static example:</p>
+	<typo3-notification-message
+			notification-id="example-notification"
+			notification-title="Saved"
+			notification-message="Your changes have been stored."
+			notification-severity="0"
+			notification-duration="100">
+	</typo3-notification-message>
+	<hr>
+
+	<f:asset.module identifier="@typo3/backend/element/spinner-element.js"></f:asset.module>
+	<h2>typo3-backend-spinner</h2>
+	<typo3-backend-spinner size="default"></typo3-backend-spinner>
+	<typo3-backend-spinner size="medium"></typo3-backend-spinner>
+	<typo3-backend-spinner size="large"></typo3-backend-spinner>
+	<hr>
+
+	<f:asset.module identifier="@typo3/backend/element/progress-bar-element.js"></f:asset.module>
+	<h2>typo3-backend-progress-bar</h2>
+	<typo3-backend-progress-bar value="42" max="100" label="Uploading…"></typo3-backend-progress-bar>
+	<hr>
+
+	<f:asset.module identifier="@typo3/backend/element/progress-tracker-element.js"></f:asset.module>
+	<h2>typo3-backend-progress-tracker</h2>
+	<typo3-backend-progress-tracker
+			stages='["Select source","Configure", "Review", "Done"]'
+			active="2">
+	</typo3-backend-progress-tracker>
+	<hr>
+
+	<f:asset.module identifier="@typo3/backend/element/pagination.js"></f:asset.module>
+	<h2>typo3-backend-pagination</h2>
+	<p>The <code>paging</code> property is set imperatively (Object). Inline bootstrap shown for demo:</p>
+	<typo3-backend-pagination id="demo-pagination" paging='{"currentPage": 2, "totalPages": 5}'></typo3-backend-pagination>
+	<hr>
+
+	<f:asset.module identifier="@typo3/backend/element/breadcrumb.js"></f:asset.module>
+	<h2>typo3-breadcrumb</h2>
+	<typo3-breadcrumb
+			label="Breadcrumb"
+			nodes='[{"identifier": "1","label":"Home","icon":"apps-pagetree-page-default","iconOverlay":null,"url":null,"forceShowIcon":true},{"identifier":"2","label":"Section","icon":null,"iconOverlay":null,"url":null,"forceShowIcon":false},{"identifier":"3","label":"Current page","icon":null,"iconOverlay":null,"url":null,"forceShowIcon":false}]'>
+	</typo3-breadcrumb>
+	<hr>
+
+	<f:asset.module identifier="@typo3/backend/element/thumbnail-element.js"></f:asset.module>
+	<h2>typo3-backend-thumbnail</h2>
+	<typo3-backend-thumbnail
+			url="{f:uri.image(src: 'EXT:lit_demo/Resources/Public/Icons/Extension.svg')}"
+			size="small"
+			width="200"
+			keepAspectRatio>
+	</typo3-backend-thumbnail>
+	<hr>
+
+	<f:asset.module identifier="@typo3/backend/element/datetime-element.js"></f:asset.module>
+	<h2>typo3-backend-datetime</h2>
+	<div>
+		<b>mode="absolute"</b>
+		<typo3-backend-datetime datetime="2026-05-04T10:00:00Z" format="datetime"></typo3-backend-datetime>
+	</div>
+
+	<div>
+		<b>mode="relative"</b>
+		<typo3-backend-datetime datetime="2026-05-04T10:00:00Z" mode="relative"></typo3-backend-datetime>
+	</div>
+
+	<hr>
+
+	<f:asset.module identifier="@typo3/backend/tab.js"></f:asset.module>
+	<h2>typo3-backend-tab-scroller</h2>
+	<typo3-backend-tab-scroller>
+		<ul class="nav nav-tabs" role="tablist">
+			<li class="nav-item" role="presentation"><button type="button" class="nav-link active" role="tab" data-typo3-tab="#tab1">Example Tab 1</button></li>
+			<li class="nav-item" role="presentation"><button type="button" class="nav-link" role="tab" data-typo3-tab="#tab2">Example Tab 2</button></li>
+			<li class="nav-item" role="presentation"><button type="button" class="nav-link" role="tab" data-typo3-tab="#tab3">Example Tab 3</button></li>
+			<li class="nav-item" role="presentation"><button type="button" class="nav-link" role="tab" data-typo3-tab="#tab4">Example Tab 4</button></li>
+			<li class="nav-item" role="presentation"><button type="button" class="nav-link" role="tab" data-typo3-tab="#tab5">Example Tab 5</button></li>
+			<li class="nav-item" role="presentation"><button type="button" class="nav-link" role="tab" data-typo3-tab="#tab6">Example Tab 6</button></li>
+		</ul>
+	</typo3-backend-tab-scroller>
+	<div class="tab-content">
+		<div role="tabpanel" class="tab-pane active" id="tab1">Example Tab 1 Content</div>
+		<div role="tabpanel" class="tab-pane" id="tab2">Example Tab 2 Content</div>
+		<div role="tabpanel" class="tab-pane" id="tab3">Example Tab 3 Content</div>
+		<div role="tabpanel" class="tab-pane" id="tab4">Example Tab 4 Content</div>
+		<div role="tabpanel" class="tab-pane" id="tab5">Example Tab 5 Content</div>
+		<div role="tabpanel" class="tab-pane" id="tab6">Example Tab 6 Content</div>
+	</div>
+	<hr>
+
+	<f:asset.module identifier="@typo3/backend/element/combobox-element.js"></f:asset.module>
+	<h2>typo3-backend-combobox</h2>
+	<typo3-backend-combobox>
+		<input type="text" class="form-control" placeholder="Select or type…" aria-label="Color">
+		<typo3-backend-combobox-choice value="red" icon="actions-add">Red</typo3-backend-combobox-choice>
+		<typo3-backend-combobox-choice value="green" icon="actions-remove">Green</typo3-backend-combobox-choice>
+		<typo3-backend-combobox-choice value="blue">Blue</typo3-backend-combobox-choice>
+	</typo3-backend-combobox>
+	<hr>
+
+	<f:asset.module identifier="@typo3/backend/context-menu.js"></f:asset.module>
+	<h2>typo3-backend-context-menu (not a Web Component)</h2>
+	<p>Singleton; activated via <code>contextmenu</code> events on elements with the corresponding data attributes.</p>
+	<button class="btn btn-default" type="button" data-contextmenu-trigger="click" data-contextmenu-table="pages" data-contextmenu-uid="1">
+		Right-click target (page uid 1)
+	</button>
+	<hr>
+
+	<f:asset.module identifier="@typo3/backend/color-picker.js"></f:asset.module>
+	<h2>typo3-backend-color-picker</h2>
+	<typo3-backend-color-picker color="#ff8700">
+		<input type="text" value="#ff8700" class="form-control"/>
+	</typo3-backend-color-picker>
+	<hr>
+
+	<f:asset.module identifier="@typo3/backend/element/draggable-resizable-element.js"></f:asset.module>
+	<h2>typo3-backend-draggable-resizable</h2>
+	<div style="position: relative; width: 320px; height: 200px; background: #eee;">
+		<typo3-backend-draggable-resizable
+				offset='{"left":10,"top":10,"width":120,"height":80}'
+				style="background: #fff; border: 1px solid #999;">
+			Drag me
+		</typo3-backend-draggable-resizable>
+	</div>
+	<hr>
+
+	<f:asset.module identifier="@typo3/backend/element/editable-page-title.js"></f:asset.module>
+	<h2>typo3-backend-editable-page-title</h2>
+	<typo3-backend-editable-page-title
+			pageTitle="Editable page title"
+			pageId="1"
+			localizedPageId="0"
+			editable>
+	</typo3-backend-editable-page-title>
+	<hr>
+
+	<f:asset.module identifier="@typo3/backend/grid-editor.js"></f:asset.module>
+	<h2>typo3-backend-grid-editor</h2>
+	<p>Configured via <code>data</code>, <code>colCount</code>, <code>rowCount</code> properties (set imperatively or via TCA wizard).</p>
+	<typo3-backend-grid-editor colCount="2" rowCount="2" fieldName="demo"></typo3-backend-grid-editor>
+	<hr>
+
+	<f:asset.module identifier="@typo3/backend/wizard/wizard.js"></f:asset.module>
+	<h2>typo3-backend-wizard</h2>
+	<p>Steps and a submission service must be provided imperatively via JavaScript.</p>
+	<typo3-backend-wizard confirm-button-label="Finish"></typo3-backend-wizard>
+	<hr>
+
+	<f:asset.module identifier="@typo3/backend/copy-to-clipboard.js"></f:asset.module>
+	<h2>typo3-copy-to-clipboard</h2>
+	<typo3-copy-to-clipboard text="Hello clipboard">
+		<button type="button" class="btn btn-default">Copy text</button>
+	</typo3-copy-to-clipboard>
+	<hr>
+
+	<f:asset.module identifier="@typo3/backend/element/immediate-action-element.js"></f:asset.module>
+	<h2>typo3-immediate-action</h2>
+	<p>Executes a JavaScript module method as soon as it is connected to the DOM.</p>
+	<typo3-immediate-action action="TYPO3.ModuleMenu.App.refreshMenu"></typo3-immediate-action>
+	<hr>
+
+	<f:asset.module identifier="@typo3/backend/element/dispatch-modal-button.js"></f:asset.module>
+	<h2>typo3-backend-dispatch-modal-button</h2>
+	<typo3-backend-dispatch-modal-button url="#" subject="Show details">
+		<button type="button" class="btn btn-default">Open dispatch modal</button>
+	</typo3-backend-dispatch-modal-button>
+	<hr>
+
+	<f:asset.module identifier="@typo3/backend/element/qrcode-element.js"></f:asset.module>
+	<h2>typo3-qrcode</h2>
+	<typo3-qrcode content="https://typo3.org/" size="medium" show-url show-download></typo3-qrcode>
+	<hr>
+
+	<f:asset.module identifier="@typo3/backend/element/qrcode-modal-button.js"></f:asset.module>
+	<h2>typo3-qrcode-modal-button</h2>
+	<typo3-qrcode-modal-button modal-title="Scan me" content="https://typo3.org/" show-url show-download>
+		<button type="button" class="btn btn-default">Show QR code</button>
+	</typo3-qrcode-modal-button>
+	<hr>
+
+	<f:asset.module identifier="@typo3/backend/record-download-button.js"></f:asset.module>
+	<h2>typo3-recordlist-record-download-button</h2>
+	<typo3-recordlist-record-download-button
+			url="#"
+			subject="Download configuration"
+			ok="Download"
+			close="Cancel">
+		<button type="button" class="btn btn-default">Download…</button>
+	</typo3-recordlist-record-download-button>
+	<hr>
+
+	<f:asset.module identifier="@typo3/backend/code-editor/element/code-mirror-element.js"></f:asset.module>
+	<h2>typo3-t3editor-codemirror</h2>
+	<p>The <code>mode</code>/<code>addons</code>/<code>keymaps</code> properties are configured via JSON for module loading.</p>
+	<typo3-t3editor-codemirror autoheight linewrapping label="Code editor">
+		<textarea>console.log('Hello from CodeMirror');</textarea>
+	</typo3-t3editor-codemirror>
+	<hr>
+
+</f:section>
+
+</html>
